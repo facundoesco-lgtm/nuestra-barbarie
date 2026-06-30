@@ -6,16 +6,85 @@ media_folder: "public/imagenes"
 public_folder: "/imagenes"
 
 collections:
-  - name: "ensayos"
-    label: "Ensayos"
-    folder: "src/content/ensayos"
+  - name: "podcast"
+    label: "Podcast"
+    folder: "src/content/podcast"
+    create: true
+    slug: "{{slug}}"
+    extension: "md"
+    fields:
+      - { label: "Título", name: "titulo", widget: "string" }
+      - { label: "Número de episodio", name: "numero", widget: "number" }
+      - { label: "Fecha", name: "fecha", widget: "date", format: "YYYY-MM-DD" }
+      - { label: "Resumen", name: "resumen", widget: "text" }
+      - { label: "Duración", name: "duracion", widget: "string", required: false }
+      - { label: "URL del audio", name: "audio_url", widget: "string", required: false }
+      - { label: "Cuerpo", name: "body", widget: "markdown" }
+
+  - name: "diccionario"
+    label: "Diccionario político"
+    folder: "src/content/diccionario"
+    create: true
+    slug: "{{slug}}"
+    extension: "md"
+    fields:
+      - { label: "Término", name: "termino", widget: "string" }
+      - { label: "Fecha", name: "fecha", widget: "date", format: "YYYY-MM-DD" }
+      - { label: "Resumen", name: "resumen", widget: "text" }
+      - { label: "Cuerpo", name: "body", widget: "markdown" }
+
+  - name: "cronologia"
+    label: "Cronología"
+    folder: "src/content/cronologia"
+    create: true
+    slug: "{{slug}}"
+    extension: "md"
+    fields:
+      - { label: "Título del evento", name: "titulo", widget: "string" }
+      - { label: "Año", name: "anio", widget: "number" }
+      - { label: "Fecha completa del evento", name: "fecha_evento", widget: "string" }
+      - { label: "Descripción", name: "descripcion", widget: "text" }
+      - { label: "Cuerpo (opcional)", name: "body", widget: "markdown", required: false }
+
+  - name: "territorio"
+    label: "El territorio"
+    folder: "src/content/territorio"
     create: true
     slug: "{{slug}}"
     extension: "md"
     fields:
       - { label: "Título", name: "titulo", widget: "string" }
       - { label: "Fecha", name: "fecha", widget: "date", format: "YYYY-MM-DD" }
-      - { label: "Categoría", name: "categoria", widget: "select", options: ["Desde la tesis", "Reflexión", "Caso"] }
       - { label: "Resumen", name: "resumen", widget: "text" }
+      - { label: "Imagen", name: "imagen", widget: "image", required: false }
+      - { label: "Cuerpo", name: "body", widget: "markdown" }
+
+  - name: "actores"
+    label: "Red de actores"
+    folder: "src/content/actores"
+    create: true
+    slug: "{{slug}}"
+    extension: "md"
+    fields:
+      - { label: "Nombre", name: "nombre", widget: "string" }
+      - { label: "Bando", name: "bando", widget: "select", options: ["liberal", "rebelde"] }
+      - { label: "Rol", name: "rol", widget: "string" }
+      - { label: "Resumen", name: "resumen", widget: "text" }
+      - { label: "Fecha de nacimiento", name: "fecha_nacimiento", widget: "string", required: false }
+      - { label: "Fecha de muerte", name: "fecha_muerte", widget: "string", required: false }
+      - { label: "Cuerpo", name: "body", widget: "markdown" }
+
+  - name: "recursos"
+    label: "Recursos"
+    folder: "src/content/recursos"
+    create: true
+    slug: "{{slug}}"
+    extension: "md"
+    fields:
+      - { label: "Título", name: "titulo", widget: "string" }
+      - { label: "Fecha", name: "fecha", widget: "date", format: "YYYY-MM-DD" }
+      - { label: "Tipo", name: "tipo", widget: "select", options: ["documento-interactivo", "bibliografia", "curaduria", "ensenanza", "archivo"] }
+      - { label: "Resumen", name: "resumen", widget: "text" }
+      - { label: "Imagen", name: "imagen", widget: "image", required: false }
       - { label: "Destacado", name: "destacado", widget: "boolean", default: false, required: false }
       - { label: "Cuerpo", name: "body", widget: "markdown" }
