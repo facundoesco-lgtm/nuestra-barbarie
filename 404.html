@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>Somos la barbarie — el sitio se mudó</title>
+  <script>
+    // Un link viejo como /nuestra-barbarie/bitacora/algo/ lleva a /bitacora/algo/ en el sitio nuevo.
+    (function () {
+      var NUEVO = 'https://somoslabarbarie.github.io';
+      var PREFIJO = '/nuestra-barbarie';
+      var ruta = location.pathname;
+      if (ruta === PREFIJO || ruta.indexOf(PREFIJO + '/') === 0) {
+        ruta = ruta.slice(PREFIJO.length);
+      }
+      if (ruta === '') ruta = '/';
+      location.replace(NUEVO + ruta + location.search + location.hash);
+    })();
+  </script>
+  <style>
+    body { font: 18px/1.6 system-ui, sans-serif; max-width: 32rem; margin: 4rem auto; padding: 0 1.5rem; color: #221E19; background: #ECE8DD; }
+    a { color: #7B2E1C; }
+  </style>
+</head>
+<body>
+  <p>Este sitio se mudó a <a href="https://somoslabarbarie.github.io/">somoslabarbarie.github.io</a></p>
+</body>
+</html>
